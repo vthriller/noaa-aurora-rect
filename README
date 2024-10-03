@@ -1,0 +1,14 @@
+This pile of quick hacks sloppily rectilinearizes aurora forecast images from [1], which makes it easier to read for those outside of North America.
+
+[1] https://www.swpc.noaa.gov/products/aurora-30-minute-forecast
+
+# there's no need to re-generate this map every time, one is enough
+./generate-map
+
+./fetch
+parallel ./rectilinearize ::: 2024-10-03-1548/*.jpg
+
+$VIEWER 2024-10-03-1548/*-rect.jpg
+# or
+parallel ./mark-locations ::: 2024-10-03-1548/*-rect.jpg
+$VIEWER 2024-10-03-1548/*-marked.jpg

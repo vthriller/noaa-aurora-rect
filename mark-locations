@@ -1,0 +1,15 @@
+#!/bin/bash
+# via wikipedia
+# London:      51.507222  -0.1275
+# Copenhagen:  55.676111  12.568333
+# Helsinki:    60.170833  24.9375
+# to pixels on 2400x800 image:
+# > (80 - c(51.507222, 55.676111, 60.170833)) / 60 * 800
+# [1] 379.9037 324.3185 264.3889
+# > (c(-0.1275, 12.568333, 24.9375) + 180) / 360 * 2400
+# [1] 1199.150 1283.789 1366.250
+exec magick "$1" -fill cyan \
+	-draw 'translate 1199.150,379.9037 circle 0,0 3,0' \
+	-draw 'translate 1283.789,324.3185 circle 0,0 3,0' \
+	-draw 'translate 1366.250,264.3889 circle 0,0 3,0' \
+	"$1-marked.jpg"

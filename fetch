@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eo pipefail
+d=$(date +'%Y-%m-%d-%H%M')
+mkdir $d
+cd $d
+wget -nv $(
+	for i in $(curl -s https://services.swpc.noaa.gov/images/animations/ovation/north/ | fgrep 'href="aurora' | cut -d'"' -f2); do
+		echo https://services.swpc.noaa.gov/images/animations/ovation/north/$i
+	done
+)
