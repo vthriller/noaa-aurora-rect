@@ -1,0 +1,10 @@
+#!/bin/bash
+set -exo pipefail
+
+test -e map.png || ./generate-map
+
+f=$(date +'%Y-%m-%d-%H%M').jpg
+
+wget -nv https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg -O $f
+./rectilinearize $f
+./mark-locations $f-rect.jpg

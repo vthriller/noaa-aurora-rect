@@ -2,13 +2,4 @@ This pile of quick hacks sloppily rectilinearizes aurora forecast images from [1
 
 [1] https://www.swpc.noaa.gov/products/aurora-30-minute-forecast
 
-# there's no need to re-generate this map every time, one is enough
-./generate-map
-
-wget https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg
-./rectilinearize latest.jpg
-
-$VIEWER latest.jpg-rect.jpg
-# or
-./mark-locations latest.jpg-rect.jpg
-$VIEWER latest.jpg-marked.jpg
+Just ./fetch-and-mark and enjoy images in $PWD
