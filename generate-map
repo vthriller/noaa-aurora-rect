@@ -1,2 +1,0 @@
-#!/bin/bash
-exec magick \( -size 2400x800 xc: \) \( -size 800x800 \( gradient: -rotate 90 -gravity center \) \( gradient: -flip \) xc:black -channel RGB -combine \) -fx 'jm = j/v.h; roff = 68.68526; ang = pi-.17-2*pi*i/3/v.w; v.p{ ((jm ^ .75) * 307.07563 + roff) * cos(ang) + 400 , ((jm ^ .75) * 301.25500 + roff) * sin(ang) + (jm ^ 1.565) * 44.96304 + 331.81890 }' map.png

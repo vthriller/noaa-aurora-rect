@@ -1,2 +1,2 @@
 #!/bin/bash
-exec magick -interpolate Integer \( "$1" -resize 2400x800\! \) map.png -compose Distort -define compose:args='' -composite "$1-rect.jpg"
+exec magick -interpolate Integer \( "$1" -resize 2400x800\! \) lut.png -compose Distort -define compose:args='' -composite "$1-rect.jpg"

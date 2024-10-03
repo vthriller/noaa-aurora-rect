@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exo pipefail
 
-test -e map.png || ./generate-map
+test -e lut.png || ./generate-lut
 
 f=$(date +'%Y-%m-%d-%H%M').jpg
 
